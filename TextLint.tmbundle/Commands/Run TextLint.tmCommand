@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#!/bin/bash
+
+ST_FILEPATH="$TM_FILEPATH.textlint.st"
+OUT_FILEPATH="$TM_FILEPATH.textlint.out"
+
+echo "TLConsole checkFileNamed: '$TM_FILEPATH' andOutputToFileNamed: '$(basename "$OUT_FILEPATH")' withinDirectory: '$(dirname "$OUT_FILEPATH")'" > "$ST_FILEPATH"
+"$TM_BUNDLE_SUPPORT/TextLint.app/Contents/MacOS/Croquet" -headless "$TM_BUNDLE_SUPPORT/TextLint.image" "$ST_FILEPATH"
+cat "$OUT_FILEPATH"
+
+rm "$ST_FILEPATH"
+rm "$OUT_FILEPATH"</string>
+	<key>input</key>
+	<string>none</string>
+	<key>keyEquivalent</key>
+	<string>^V</string>
+	<key>name</key>
+	<string>Run TextLint</string>
+	<key>output</key>
+	<string>showAsHTML</string>
+	<key>scope</key>
+	<string>text.html, text.tex.latex</string>
+	<key>uuid</key>
+	<string>DA58F0FE-56DB-4C34-B835-3FA6B13C297B</string>
+</dict>
+</plist>
