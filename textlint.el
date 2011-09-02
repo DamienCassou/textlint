@@ -30,13 +30,37 @@
 
 ;;; Code:
 
+(defgroup textlint nil
+  "Controlling TextLint (http://scg.unibe.ch/research/textlint) from Emacs."
+  :prefix "textlint-"
+  :group 'tools)
+
+(defcustom textlint-location-script
+  "~/.emacs.d/el-get/textlint/textlint.bash"
+  "The path to the textlint.bash Bash script."
+  :group 'textlint
+  :type '(file :must-match t))
+
+(defcustom textlint-location-vm
+  "~/Documents/squeak/vms/Cog/CogVM"
+  "The path to the Squeak/Pharo virtual machine."
+  :group 'textlint
+  :type '(file :must-match t))
+
+(defcustom textlint-location-image
+  "~/Documents/writing/textlint/textlint.image"
+  "The path to the TextLint image."
+  :group 'textlint
+  :type '(file :must-match t))
+
 (defun textlint-run ()
   (interactive)
-  (let ((script "~/.emacs.d/textlint.bash")
-	(vm "~/Documents/squeak/vms/Cog/CogVM")
-	(image "~/Documents/writing/textlint/textlint.image")
-	(filename (file-relative-name (buffer-file-name))))
-    (compile (format "%s %s %s %s" script filename vm image))))
+  (let ((filename (file-relative-name (buffer-file-name))))
+    (compile (format "%s %s %s %s"
+		     textlint-location-script
+		     filename
+		     textlint-location-vm
+		     textlint-location-image))))
 
 
 ;;; textlint.el ends here
