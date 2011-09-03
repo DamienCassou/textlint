@@ -6,16 +6,14 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/bin/bash
-
-ST_FILEPATH="$TM_FILEPATH.textlint.st"
+IN_FILEPATH="$TM_FILEPATH"
 OUT_FILEPATH="$TM_FILEPATH.textlint.out"
-
-echo "TLConsole checkFileNamed: '$(basename "$TM_FILEPATH")' andOutputToFileNamed: '$(basename "$OUT_FILEPATH")' withinDirectory: '$(dirname "$OUT_FILEPATH")'" > "$ST_FILEPATH"
-"$TM_BUNDLE_SUPPORT/TextLint.app/Contents/MacOS/Croquet" "$TM_BUNDLE_SUPPORT/TextLint.image" -headless "$ST_FILEPATH"
+ST_FILEPATH="$TM_FILEPATH.textlint.st"
+echo "TLConsole checkFileNamed: '$(basename "$IN_FILEPATH")' andOutputToFileNamed: '$(basename "$OUT_FILEPATH")' withinDirectory: '$(dirname "$IN_FILEPATH")' !" > "$ST_FILEPATH"
+"$TM_BUNDLE_SUPPORT/TextLint.app/Contents/MacOS/Croquet" "$TM_BUNDLE_SUPPORT/TextLint.image" "$ST_FILEPATH"
 cat "$OUT_FILEPATH"
-
-rm "$ST_FILEPATH"
-rm "$OUT_FILEPATH"</string>
+rm "$OUT_FILEPATH"
+rm "$ST_FILEPATH"</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
