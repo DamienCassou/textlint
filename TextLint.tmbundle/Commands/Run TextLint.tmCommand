@@ -10,8 +10,8 @@
 ST_FILEPATH="$TM_FILEPATH.textlint.st"
 OUT_FILEPATH="$TM_FILEPATH.textlint.out"
 
-echo "TLConsole checkFileNamed: '$TM_FILEPATH' andOutputToFileNamed: '$(basename "$OUT_FILEPATH")' withinDirectory: '$(dirname "$OUT_FILEPATH")'" > "$ST_FILEPATH"
-"$TM_BUNDLE_SUPPORT/TextLint.app/Contents/MacOS/Croquet" -headless "$TM_BUNDLE_SUPPORT/TextLint.image" "$ST_FILEPATH"
+echo "TLConsole checkFileNamed: '$(basename "$TM_FILEPATH")' andOutputToFileNamed: '$(basename "$OUT_FILEPATH")' withinDirectory: '$(dirname "$OUT_FILEPATH")'" > "$ST_FILEPATH"
+"$TM_BUNDLE_SUPPORT/TextLint.app/Contents/MacOS/Croquet" "$TM_BUNDLE_SUPPORT/TextLint.image" -headless "$ST_FILEPATH"
 cat "$OUT_FILEPATH"
 
 rm "$ST_FILEPATH"
