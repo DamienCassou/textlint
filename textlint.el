@@ -45,7 +45,7 @@
   (concat textlint-location-textlint "/textlint.bash"))
 
 (defun textlint-location-vm ()
-  (concat textlint-location-textlint "/Linux/pharo"))
+  (concat textlint-location-textlint "/Linux32/pharo"))
 
 (defun textlint-location-image ()
   (concat textlint-location-textlint "/TextLint.tmbundle/Support/TextLint.image"))
