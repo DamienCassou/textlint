@@ -19,8 +19,8 @@ TLConsole checkFileNamed: '$1' andOutputToFileNamed: 'textlint.log' withinDirect
 EOF
 
 echo
-echo "Please wait while TextLint processes your file..."
+echo "Please wait while TextLint processes your file: it can take some time..."
 echo
 
-"$pharovm" "$textlintimage" $(pwd)/textlint.st
+"$pharovm" -headless "$textlintimage" $(pwd)/textlint.st
 cat textlint.log
