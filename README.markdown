@@ -34,5 +34,5 @@ visit the next error message and move to the text that caused it.
 # Setup instructions for TextMate #
 
 Double click on "TextLint.tmbundle" to install TextLint. Open a LaTeX
-or plain text file and press Ctrl+Shift+V to run TextLint. Alternative
+or plain text file and press `Ctrl+Shift+V` to run TextLint. Alternatively
 select "Bundles > TextLint > RunText Lint" from the menu.
