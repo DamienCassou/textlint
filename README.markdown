@@ -12,7 +12,7 @@ just add the following recipe:
 
 	(:name textlint
 	    :type git
-	    :url "git@github.com:DamienCassou/textlint.git"
+	    :url "git://github.com/DamienCassou/textlint.git"
 	    :website "http://scg.unibe.ch/research/textlint"
 	    :description "Allows the integration of TextLint within Emacs"
 	    :load "textlint.el")
