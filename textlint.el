@@ -35,32 +35,29 @@
   :prefix "textlint-"
   :group 'tools)
 
-(defcustom textlint-location-script
-  "~/.emacs.d/el-get/textlint/textlint.bash"
+(defcustom textlint-location-textlint
+  "~/.emacs.d/el-get/textlint"
   "The path to the textlint.bash Bash script."
   :group 'textlint
   :type '(file :must-match t))
 
-(defcustom textlint-location-vm
-  "~/Documents/squeak/vms/Cog/CogVM"
-  "The path to the Squeak/Pharo virtual machine."
-  :group 'textlint
-  :type '(file :must-match t))
+(defun textlint-location-script ()
+  (concat textlint-location-textlint "/textlint.bash"))
 
-(defcustom textlint-location-image
-  "~/Documents/writing/textlint/textlint.image"
-  "The path to the TextLint image."
-  :group 'textlint
-  :type '(file :must-match t))
+(defun textlint-location-vm ()
+  (concat textlint-location-textlint "/Linux/pharo"))
+
+(defun textlint-location-image ()
+  (concat textlint-location-textlint "/TextLint.tmbundle/Support/TextLint.image"))
 
 (defun textlint-run ()
   (interactive)
   (let ((filename (file-relative-name (buffer-file-name))))
     (compile (format "%s %s %s %s"
-		     textlint-location-script
+		     (textlint-location-script)
 		     filename
-		     textlint-location-vm
-		     textlint-location-image))))
+		     (textlint-location-vm)
+		     (textlint-location-image)))))
 
 
 ;;; textlint.el ends here
