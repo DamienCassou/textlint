@@ -53,7 +53,7 @@
 (defun textlint-run ()
   (interactive)
   (let ((filename (file-relative-name (buffer-file-name))))
-    (compile (format "%s %s %s %s"
+    (compile (format "\"%s\" \"%s\" \"%s\" \"%s\""
 		     (textlint-location-script)
 		     filename
 		     (textlint-location-vm)
