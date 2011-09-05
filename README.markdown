@@ -36,3 +36,18 @@ visit the next error message and move to the text that caused it.
 Double click on "TextLint.tmbundle" to install TextLint. Open a LaTeX
 or plain text file and press `Ctrl+Shift+V` to run TextLint. Alternatively
 select "Bundles > TextLint > RunText Lint" from the menu.
+
+# Support #
+
+If you want to report problems do that on the
+[Issues page](https://github.com/DamienCassou/textlint/issues).
+
+If you want to propose the integration for a new editor or fix an
+existing integration, please
+[fork the project](https://github.com/DamienCassou/textlint) and start
+a pull request.
+
+If you want to change the TextLint engine or just have a look at it,
+get it from the [SCG website](http://scg.unibe.ch/research/textlint).
+Please propose patches by email
+[to the developers](http://www.squeaksource.com/textlint.html).
