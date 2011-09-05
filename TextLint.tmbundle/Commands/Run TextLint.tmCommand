@@ -6,14 +6,17 @@
 	<string>saveActiveFile</string>
 	<key>command</key>
 	<string>#!/bin/bash
-IN_FILEPATH="$TM_FILEPATH"
+. "${TM_SUPPORT_PATH}/lib/html.sh"
+. "${TM_SUPPORT_PATH}/lib/webpreview.sh"
+html_header 'TextLint' "$FILE"
 OUT_FILEPATH="$TM_FILEPATH.textlint.out"
 ST_FILEPATH="$TM_FILEPATH.textlint.st"
-echo "TLConsole checkFileNamed: '$(basename "$IN_FILEPATH")' andOutputToFileNamed: '$(basename "$OUT_FILEPATH")' withinDirectory: '$(dirname "$IN_FILEPATH")' !" > "$ST_FILEPATH"
+echo "TLTextMate checkInput: '$TM_FILEPATH' output: '$OUT_FILEPATH' !" > "$ST_FILEPATH"
 "$TM_BUNDLE_SUPPORT/TextLint.app/Contents/MacOS/Croquet" "$TM_BUNDLE_SUPPORT/TextLint.image" "$ST_FILEPATH"
 cat "$OUT_FILEPATH"
 rm "$OUT_FILEPATH"
-rm "$ST_FILEPATH"</string>
+rm "$ST_FILEPATH"
+html_footer</string>
 	<key>input</key>
 	<string>none</string>
 	<key>keyEquivalent</key>
