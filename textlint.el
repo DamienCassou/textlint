@@ -39,25 +39,57 @@
   "~/.emacs.d/el-get/textlint"
   "The path to the textlint.bash Bash script."
   :group 'textlint
-  :type '(file :must-match t))
+  :type '(directory))
 
-(defun textlint-location-script ()
-  (concat textlint-location-textlint "/textlint.bash"))
-
-(defun textlint-location-vm ()
+(defun textlint-location-vm-from-textlint-location ()
   (concat textlint-location-textlint "/Linux32/pharo"))
 
-(defun textlint-location-image ()
+(defcustom textlint-location-vm
+  'textlint-location-vm-from-textlint-location
+  "Indicates where the Smalltalk Virtual Machine can be found.
+The value is either a function which will be executed to get the
+VM location or a file. The default for the function is
+`textlint-location-vm-from-textlint-location` which returns the
+location of the VM based on the location of TextLint as indicated
+by `textlint-location-textlint`."
+  :group 'textlint
+  :type '(choice (function :value textlint-location-vm-from-textlint-location) (file :must-match t)))
+
+(defun textlint-get-location-vm ()
+  (expand-file-name (if (functionp textlint-location-vm)
+			(funcall textlint-location-vm)
+		      textlint-location-vm)))
+
+(defun textlint-location-image-from-textlint-location ()
   (concat textlint-location-textlint "/TextLint.tmbundle/Support/TextLint.image"))
+
+(defcustom textlint-location-image
+  'textlint-location-image-from-textlint-location
+  "Indicates where the Smalltalk Image for TextLint can be found.
+The value is either a function which will be executed to get the
+image location or a file. The default for the function is
+`textlint-location-image-from-textlint-location` which returns the
+location of the image based on the location of TextLint as indicated
+by `textlint-location-textlint`."
+  :group 'textlint
+  :type '(choice (function :value textlint-location-image-from-textlint-location) (file :must-match t)))
+
+(defun textlint-get-location-image ()
+  (expand-file-name (if (functionp textlint-location-image)
+			(funcall textlint-location-image)
+		      textlint-location-image)))
+
+(defun textlint-get-location-script ()
+  (expand-file-name (concat textlint-location-textlint "/textlint.bash")))
 
 (defun textlint-run ()
   (interactive)
   (let ((filename (file-relative-name (buffer-file-name))))
     (compile (format "\"%s\" \"%s\" \"%s\" \"%s\""
-		     (textlint-location-script)
+		     (textlint-get-location-script)
 		     filename
-		     (textlint-location-vm)
-		     (textlint-location-image)))))
+		     (textlint-get-location-vm)
+		     (textlint-get-location-image)))))
 
 
 ;;; textlint.el ends here
