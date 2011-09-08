@@ -17,11 +17,11 @@ Now you can [use TextLint](#emacs-using).
 ## Without el-get ##
 
 If you do not use el-get,
-[download the textlint.bash and textlint.el files](https://github.com/DamienCassou/textlint)
-from github, update your load-path, and load "textlint.el".
+[download the project archive file][https://github.com/DamienCassou/textlint/zipball/master] from the [github project](https://github.com/DamienCassou/textlint), unzip, update your load-path, and load "textlint.el".
 
-You then have to customize the variable in the textlint group using
-`M-x customize-group RET textlint RET`.
+You then have to customize the variables in the textlint group using
+`M-x customize-group RET textlint RET`. You at least need to configure
+`textlint-location-textlint`.
 
 Now you can [use TextLint](#emacs-using).
 
