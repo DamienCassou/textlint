@@ -1,4 +1,4 @@
-# Setup instructions for Emacs #
+# Setup instructions for Emacs # <a name="emacs-installing"></a>
 
 ## With el-get ##
 
@@ -31,7 +31,7 @@ You can now visit a text file and type `M-x textlint-run RET`. When
 you see "Compilation finished", you can start using `` C-x ` `` to
 visit the next error message and move to the text that caused it.
 
-# Setup instructions for TextMate #
+# Setup instructions for TextMate # <a name="textmate-installing"></a>
 
 Double click on "TextLint.tmbundle" to install TextLint. Open a LaTeX
 or plain text file and press `Ctrl+Shift+V` to run TextLint. Alternatively
