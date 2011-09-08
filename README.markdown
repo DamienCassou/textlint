@@ -1,3 +1,35 @@
+# Introduction <a name="introduction"></a>
+
+Written text is an important component in the process of knowledge
+acquisition and communication. Poorly written text fails to deliver
+clear ideas to the reader no matter how revolutionary and
+ground-breaking these ideas are. Providing text with good writing
+style is essential to transfer ideas smoothly. While we have
+sophisticated tools to check for stylistic problems in program code,
+we do not apply the same techniques for written text. TextLint is a
+ruled-based tool to check for common style errors in natural language.
+TextLint provides a structural model of written text and an extensible
+rule-based checking mechanism.
+
+TextLint implements various stylistic rules that his authors collected
+over the years, and that are described in
+
+- The Elements of Style, by William Strunk Jr. and E. B. White
+- On Writing Well, by William Zinsser
+
+TextLint is a
+[research project](http://scg.unibe.ch/research/textlint) of the
+[Software Composition Group](http://scg.unibe.ch/) (SCG) from the
+[University of Bern](http://www.unibe.ch/)
+([related publications](http://scg.unibe.ch/scgbib?query=textlint)).
+
+TextLint is currently accessible through:
+
+- [An Emacs plugin](#emacs-installing)
+- [A TextMate plugin](#textmate-installing)
+- [A web interface](http://textlint.lukas-renggli.ch/)
+- [A Smalltalk IDE](http://scg.unibe.ch/research/textlint)
+
 # Setup instructions for Emacs <a name="emacs-installing"></a>
 
 ## With el-get <a name="emacs-el-get"></a>
