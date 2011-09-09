@@ -41,19 +41,32 @@
   :group 'textlint
   :type '(directory))
 
-(defun textlint-location-vm-from-textlint-location ()
+(defun textlint-location-vm-linux32 ()
+  "Returns the location of the Linux 32bits VM."
   (concat textlint-location-textlint "/Linux32/pharo"))
 
+(defun textlint-location-vm-macos ()
+  "Returns the location of the Mac OS X VM."
+  (concat textlint-location-textlint "/TextLint.tmbundle/Support/TextLint.app/Contents/MacOS/Croquet"))
+
+(defun textlint-location-vm-windows ()
+  "Returns the location of the Windows 32bits VM."
+  (concat textlint-location-textlint "/Windows32/pharo.exe"))
+
+(defun textlint-guess-location-vm ()
+  'textlint-location-vm-linux32)
+
 (defcustom textlint-location-vm
-  'textlint-location-vm-from-textlint-location
+  (textlint-guess-location-vm)
   "Indicates where the Smalltalk Virtual Machine can be found.
 The value is either a function which will be executed to get the
-VM location or a file. The default for the function is
-`textlint-location-vm-from-textlint-location` which returns the
-location of the VM based on the location of TextLint as indicated
-by `textlint-location-textlint`."
+VM location or a file."
   :group 'textlint
-  :type '(choice (function :value textlint-location-vm-from-textlint-location) (file :must-match t)))
+  :type '(radio
+	  (function-item textlint-location-vm-linux32)
+	  (function-item textlint-location-vm-macos)
+	  (function-item textlint-location-vm-windows)
+	  (file :must-match t)))
 
 (defun textlint-get-location-vm ()
   (expand-file-name (if (functionp textlint-location-vm)
