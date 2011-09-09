@@ -1,4 +1,4 @@
-;;; textlint.el --- bla bla about textlint -*- coding: utf-8 -*-
+;;; textlint.el --- TextLint is a tool to check your scientific writing for common style errors from Emacs -*- coding: utf-8 -*-
 
 ;; Copyright (C) 2011, Damien Cassou <damien.cassou@gmail.com>
 
