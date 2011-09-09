@@ -92,4 +92,6 @@ by `textlint-location-textlint`."
 		     (shell-quote-argument (textlint-get-location-image))))))
 
 
+(provide 'textlint)
+
 ;;; textlint.el ends here
