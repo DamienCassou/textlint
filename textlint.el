@@ -36,7 +36,7 @@
   :group 'tools)
 
 (defcustom textlint-location-textlint
-  "~/.emacs.d/el-get/textlint"
+  (file-name-directory (or load-file-name (buffer-file-name)))
   "The path to the textlint.bash Bash script."
   :group 'textlint
   :type '(directory))
