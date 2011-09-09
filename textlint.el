@@ -85,11 +85,11 @@ by `textlint-location-textlint`."
 (defun textlint-run ()
   (interactive)
   (let ((filename (file-relative-name (buffer-file-name))))
-    (compile (format "\"%s\" \"%s\" \"%s\" \"%s\""
-		     (textlint-get-location-script)
-		     filename
-		     (textlint-get-location-vm)
-		     (textlint-get-location-image)))))
+    (compile (format "%s %s %s %s"
+		     (shell-quote-argument (textlint-get-location-script))
+		     (shell-quote-argument filename)
+		     (shell-quote-argument (textlint-get-location-vm))
+		     (shell-quote-argument (textlint-get-location-image))))))
 
 
 ;;; textlint.el ends here
