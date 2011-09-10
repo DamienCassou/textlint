@@ -54,7 +54,13 @@
   (concat textlint-location-textlint "/Windows32/pharo.exe"))
 
 (defun textlint-guess-location-vm ()
-  'textlint-location-vm-linux32)
+  (cond
+   ((eq system-type 'darwin)
+    'textlint-location-vm-macos)
+   ((eq system-type 'windows-nt)
+    'textlint-location-vm-windows)
+   (t
+    'textlint-location-vm-linux32)))
 
 (defcustom textlint-location-vm
   (textlint-guess-location-vm)
