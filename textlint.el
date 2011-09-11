@@ -56,19 +56,20 @@
 (defun textlint-guess-location-vm ()
   (cond
    ((eq system-type 'darwin)
-    'textlint-location-vm-macos)
+    (textlint-location-vm-macos))
    ((eq system-type 'windows-nt)
-    'textlint-location-vm-windows)
+    (textlint-location-vm-windows))
    (t
-    'textlint-location-vm-linux32)))
+    (textlint-location-vm-linux32))))
 
 (defcustom textlint-location-vm
-  (textlint-guess-location-vm)
+  'textlint-guess-location-vm
   "Indicates where the Smalltalk Virtual Machine can be found.
 The value is either a function which will be executed to get the
 VM location or a file."
   :group 'textlint
   :type '(radio
+	  (function-item textlint-guess-location-vm)
 	  (function-item textlint-location-vm-linux32)
 	  (function-item textlint-location-vm-macos)
 	  (function-item textlint-location-vm-windows)
