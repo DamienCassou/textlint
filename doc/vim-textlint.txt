@@ -1,0 +1,54 @@
+*vim-textlint.txt* Writing style checker
+                                                     *textlint* *textlint.vim*
+
+
+TextLint is a ruled-based tool to check for common writing style errors in
+natural language. This plugin integrates it with Vim's quickfix feature, to
+conveniently navigate between style suggestions in your text.
+
+
+USAGE                                                         *textlint-usage*
+
+Run TextLint on the current buffer by issuing the command |:TextLint|. When
+TextLint is finished, the |quickfix| window will open, with a list of the
+stylistic rule matches it found. You can then navigate from the list to the
+text using |:cn| and |:cp|; see |quickfix| for details.
+
+Commands ~
+
+:TextLint                                                         *:TextLint*
+    Runs TextLint on the file of the current buffer, displaying results in the
+    |quickfix| window.
+
+Mappings ~
+
+<leader>tl
+    A shortcut for |:TextLint|.
+
+
+INSTALLATION                                           *textlint-installation*
+
+The nicest way to install |textlint.vim| is via either of:
+- Pathogen: https://github.com/tpope/vim-pathogen
+- Vundle: https://github.com/gmarik/vundle
+
+Besides the Vim integration files, the |textlint.vim| distribution contains
+the TextLint tool itself as well as integration files for other editors. The
+Vim plugin expects to find TextLint relative to where it's installed, so pay
+attention to this if you really want to install it the traditional way. You've
+been warned.
+
+
+ABOUT                                                         *textlint-about*
+
+TextLint implements various stylistic rules that its authors collected over
+the years, and that are described in:
+- "The Elements of Style", by William Strunk Jr. and E. B. White
+- "On Writing Well", by William Zinsser
+
+ Home page: http://scg.unibe.ch/research/textlint
+Online app: http://textlint.lukas-renggli.ch
+    Github: https://github.com/DamienCassou/textlint
+
+
+ vim:tw=78:ft=help:norl:
