@@ -11,7 +11,7 @@ ruled-based tool to check for common style errors in natural language.
 TextLint provides a structural model of written text and an extensible
 rule-based checking mechanism.
 
-TextLint implements various stylistic rules that his authors collected
+TextLint implements various stylistic rules that its authors collected
 over the years, and that are described in
 
 - The Elements of Style, by William Strunk Jr. and E. B. White
