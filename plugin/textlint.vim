@@ -33,6 +33,40 @@ function! s:cmd(file)
     return s:launcher . ' ' . a:file . ' ' . s:vm . ' ' . s:image
 endfunction
 
+let s:detect_pattern = ""
+let s:message_pattern = ""
+let s:excerpt_pattern = ""
+
+function! s:TextLint()
+    let l:textlint_output = split(system(s:cmd), '\n')
+    "file:L.C-L.C: explanation
+    "    excerpt
+    let l:occurences = []
+    let l:each = -1
+    while l:each < len(l:textlint_output)
+        " locate next lint message, break if none
+        let l:each = match(l:textlint_output, s:detect_pattern, l:each)
+        if l:each == -1
+            break
+        endif
+        " extract message & location info
+        let l:parts = matchlist(l:textlint_output[l:each], s:message_pattern)
+        let l:occurence_info = {
+            'file name':   l:parts[1],
+            'from line':   l:parts[2],
+            'from column': l:parts[3],
+            'to line':     l:parts[4],
+            'to column':   l:parts[5],
+            'message':     l:parts[6],
+            'excerpt':     matchlist(l:textlint_output[l:each + 1], s:excerpt_pattern)[1]
+        }
+        add(l:occurences, l:occurence_info)
+        " continue looking on next line
+        let l:each += 1
+    endwhile
+    "TODO build a qflist, locating excepts by pattern
+endfunction
+
 function! s:TextLint(...)
     setlocal errorformat=%f:%l.%c-%*[0-9.]:\ %m
     setlocal errorformat+=%+G\	%.%#
