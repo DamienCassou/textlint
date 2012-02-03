@@ -77,7 +77,7 @@ The recommended installation procedure is to use [pathogen][] or [Vundle][].
 
 For [pathogen][], just unzip [the textlint archive][zipball] or checkout the TextLint repository under `~/.vim/bundle`.
 
-For [Vundle][], add this line to your `.vimrc`:
+For [Vundle][], add this line to your `.vimrc`, then invoke `:BundleInstall` in Vim:
 
     Bundle 'DamienCassou/textlint'
 
