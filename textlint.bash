@@ -14,7 +14,7 @@ pharovm="$2"
 textlintimage="$3"
 
 cat > textlint.st <<EOF
-TLConsole checkFileNamed: '$1' andOutputToFileNamed: 'textlint.log' withinDirectory: '$(pwd)'
+TLConsole checkFileNamed: '$filename' andOutputToFileNamed: 'textlint.log' withinDirectory: '$(pwd)'
 
 EOF
 
