@@ -30,7 +30,7 @@ let s:launcher = s:installDir . "/textlint.bash"
 let s:image = s:installDir . "/TextLint.tmbundle/Support/TextLint.image"
 
 function! s:cmd(file)
-    return s:launcher . ' ' . a:file . ' ' . s:vm . ' ' . s:image
+    return s:launcher . ' "' . a:file . '" ' . s:vm . ' ' . s:image
 endfunction
 
 function! s:TextLint(...)
